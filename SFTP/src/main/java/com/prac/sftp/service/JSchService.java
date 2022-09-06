@@ -3,6 +3,8 @@
  */
 package com.prac.sftp.service;
 
+import java.util.Properties;
+
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
@@ -16,26 +18,36 @@ import com.jcraft.jsch.SftpException;
  */
 public class JSchService {
 
-	public static ChannelSftp setupJsch() throws JSchException {
-		JSch jsch = new JSch();
-		jsch.setKnownHosts("./known_hosts");
-		Session jschSession = jsch.getSession("UAER", "192.168.1.5");
-//		jschSession.setPassword("123");
-		jschSession.connect();
-		return (ChannelSftp) jschSession.openChannel("sftp");
-	}
 
 	public static void main(String[] args) throws JSchException, SftpException {
+		
+		String localFile = "C://temp//src.txt";
+		String remoteDir = "/remote_jsch/";
+		String remoteFileName = "jschFile.txt";
+		
+		JSch jsch = new JSch();
+		jsch.setKnownHosts("G:\\MyPracticals\\GitHub\\msprojects\\SFTP\\src\\main\\resources\\known_hosts");
+		Session jschSession = jsch.getSession("UAER", "192.168.1.5", 22);
+		//connect using password
+		jschSession.setPassword("123");
+		Properties config = new Properties();
+		config.put("StrictHostKeyChecking", "no");
+		jschSession.setConfig(config);		
+		jschSession.connect();
+		System.out.println("Session Status : " + jschSession.isConnected());
 
-		ChannelSftp channelSftp = setupJsch();
+		ChannelSftp channelSftp = (ChannelSftp) jschSession.openChannel("sftp");
 		channelSftp.connect();
 
-		String localFile = "C://temp//src.txt";
-		String remoteDir = "remote_sftp_test/";
-
-		channelSftp.put(localFile, remoteDir + "jschFile.txt");
+		//Raname File
+//		channelSftp.rename(remoteDir, remoteFileName);
+		
+		//Upload File
+		channelSftp.put(localFile, remoteDir + remoteFileName);
 
 		channelSftp.exit();
+		channelSftp.disconnect();
+		jschSession.disconnect();
 	}
 
 }
