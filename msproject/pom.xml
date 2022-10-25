@@ -5,31 +5,22 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.11</version>
+		<version>2.7.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.prac</groupId>
-	<artifactId>azserice</artifactId>
+	<groupId>com.practice</groupId>
+	<artifactId>msproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>azserice</name>
+	<name>msproject</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<version.spring.cloud.azure>4.3.0</version.spring.cloud.azure>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
-		<dependency>
-             <groupId>com.azure.spring</groupId>
-             <artifactId>spring-cloud-azure-dependencies</artifactId>
-             <version>${version.spring.cloud.azure}</version>
-             <type>pom</type>
-             <scope>import</scope>
-         </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,6 +36,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>msproject</finalName>
 	</build>
 
 </project>

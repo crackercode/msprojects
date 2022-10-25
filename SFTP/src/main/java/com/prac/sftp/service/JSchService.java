@@ -26,13 +26,15 @@ public class JSchService {
 		String remoteFileName = "jschFile.txt";
 		
 		JSch jsch = new JSch();
-		jsch.setKnownHosts("G:\\MyPracticals\\GitHub\\msprojects\\SFTP\\src\\main\\resources\\known_hosts");
+//		jsch.setKnownHosts("G:\\MyPracticals\\GitHub\\msprojects\\SFTP\\src\\main\\resources\\known_hosts");
+		jsch.addIdentity("C:\\Users\\UAER\\.ssh\\id_rsa");
+//		jsch.setKnownHosts("C:\\Users\\UAER\\.ssh\\authorized_keys");
 		Session jschSession = jsch.getSession("UAER", "192.168.1.5", 22);
 		//connect using password
-		jschSession.setPassword("123");
-		Properties config = new Properties();
-		config.put("StrictHostKeyChecking", "no");
-		jschSession.setConfig(config);		
+//		jschSession.setPassword("123");
+//		Properties config = new Properties();
+//		config.put("StrictHostKeyChecking", "no");
+//		jschSession.setConfig(config);		
 		jschSession.connect();
 		System.out.println("Session Status : " + jschSession.isConnected());
 
