@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import com.practice.dto.Address;
 import com.practice.dto.Bar;
 import com.practice.dto.Foo;
 import com.practice.dto.Person;
@@ -156,6 +157,24 @@ public class SteamAPIMain {
 		System.out.println("Reduce");
 		persons.stream().reduce((p1, p2) -> p1.getAge() > p2.getAge() ? p1 : p2).ifPresent(System.out::println);
 
+		//replace
+		List<Address> addresses = getAddressList();
+		addresses.removeIf(address -> address.getCity().equalsIgnoreCase("NY"));
+
+		addresses.stream().forEach(System.out::println);
+	}
+
+	private static List<Address> getAddressList(){
+		Address address1 = new Address(1,"street","LA");
+		Address address2 = new Address(2,"street2","LA");
+		Address address3 = new Address(3,"street3","NY");
+
+		List<Address> addresses = new ArrayList<>();
+		addresses.add(address1);
+		addresses.add(address2);
+		addresses.add(address3);
+
+		return addresses;
 	}
 
 }
