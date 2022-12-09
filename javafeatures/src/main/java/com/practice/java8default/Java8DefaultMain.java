@@ -1,4 +1,4 @@
-package com.pratice.java8default;
+package com.practice.java8default;
 
 public class Java8DefaultMain {
 

@@ -1,4 +1,4 @@
-package com.pratice.java8default;
+package com.practice.java8default;
 
 @FunctionalInterface
 public interface Formula {

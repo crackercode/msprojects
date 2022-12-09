@@ -1,7 +1,7 @@
 /*
  * Copyright (c). All rights reserved.
  */
-package com.pratice.comparablecomparator;
+package com.practice.comparablecomparator;
 
 import java.util.Comparator;
 
