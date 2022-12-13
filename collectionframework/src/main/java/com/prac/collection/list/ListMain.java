@@ -1,4 +1,4 @@
-package com.prac.collection;
+package com.prac.collection.list;
 
 public class ListMain {
 
