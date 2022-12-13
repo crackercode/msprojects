@@ -4,17 +4,22 @@ public class OverridingMain {
 
     public static void main(String[] args) {
 
-        Shape shape;
-        shape = new Shape();
+        Shape shape = new Shape();
         shape.print();
+        shape.staticPrint();
 
-        shape = new Circle();
-        shape.print();
+        Shape circle = new Circle();
+        circle.print();
+        circle.staticPrint();
 
-        shape = new Rectangle();
-        shape.print();
+        Shape rectangle = new Rectangle();
+        rectangle.print();
+        rectangle.staticPrint();
 
-        Shape.staticPrint();
-        Circle.staticPrint();
+//        Shape shape2 = new Shape();
+//        shape2.staticPrint();
+//
+//        Circle circle2 = new Circle();
+//        circle.staticPrint();
     }
 }

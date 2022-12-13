@@ -23,6 +23,10 @@ public abstract class AbstractMain {
             }
         }; // Abstract class abstract method implementation
         rectangle.printShape();
+        System.out.println("---------------------------------");
+
+        AbWithoutAbMethodChild abMethod = new AbWithoutAbMethodChild();
+        abMethod.print();
 
         System.out.println("## AbstractMain Finished ##");
     }
